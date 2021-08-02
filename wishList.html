@@ -129,19 +129,6 @@
             transform: translateX(0);
         }
 
-        .backgroundnav
-        {
-            background-color:#5C0E7D;
-            display:flex;
-            justify-content:center;
-            align-items: center;
-        }
-
-        .tamanho
-        {
-            width: 30px;
-        }
-
     </style>
 
     <title>Magalu Challenge</title>
@@ -152,15 +139,13 @@
 <!--NAVBAR-->
 <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-navbar">
     <div class="container-fluid bg-navbar">
-
       <a class="navbar-brand text-light" href="index.html">MegaNets</a>
-      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse show" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse mobile-menu" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-0 mb-lg-0 nav-list align-items-center">
-            
+             
           <li class="nav-item p-0 me-3">
             <a class="nav-link active text-light" aria-current="page" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
@@ -176,7 +161,7 @@
           </li>
   
           <li class="nav-item p-0 me-3">
-            <a class="nav-link text-light" href="wishList.html">
+            <a class="nav-link text-light" href="./wishList.html">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
                     <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
                   </svg>
@@ -198,122 +183,33 @@
 </nav>
 <!--/NAVBAR-->
 
-
 <div class="container-fluid">
-  <div class="col-md-10">
-      <p class="mb-5 mt-5">HOME</p>
-  </div>
-
-
-    <div class="d-flex align-items-center text-center">
-        <div class="col-md-12">
-
-
-<!--Catalogo de produtos-->    
-    <main>
-    </main>
-<!--/Catalogo de produtos--> 
-
-<!--Wish List-->
-
-<!--/Wish List-->
-
-        </div>
+    <div class="col-md-10">
+        <p class="mb-5 mt-5">HOME > Lista de desejos</p>
     </div>
-</div>
-
-<!--RODAPÉ-->
-      <footer class="backgroundnav"> 
-
-
-        <div class="text-light">
-        <p class="text-center">Todos os direitos reservados. Juliana Ribeiro &copy</p>
-       </div>
-
-       <div class="d-flex justify-content-center mb-2 p-2">
-           <a href="https://www.linkedin.com/in/juliana-ribeiro-b71316153/" target="_blank">
-               <img class= "tamanho" src="assets/img/linkedin.png" alt="Logo Linkedin">
-           </a>
-           
-           <a href="https://github.com/JuRibeiro" target="_blank">
-           <img class="tamanho" src="assets/img/github.png" alt="Logo Github">
-           </a>
-       </div>
-
-    </footer>
-<!--/RODAPÉ-->
-
-</body>
-
-<script>
-    async function getContent()
-    {
-        try 
-        {
-            const response = await fetch('http://localhost:8081/')
-            //console.log(response)
-            const data = await response.json()
-            //console.log(data)
-            show(data)
-        } 
-        catch (error) 
-        {
-            console.error(error)
-        }
-    }
-
-    getContent()
+  
+  
+      <div class="d-flex align-items-center text-center">
+          <div class="col-md-12">
+  
+  
+  <!--Catalogo de produtos-->    
+      <main>
+      </main>
+  <!--/Catalogo de produtos--> 
 
 
-    function show(products)
-    {
-        let output=''
-        //para cada produto faça:
-        for(let product of products)
-        {
-           /*  <div class="card-body">
-                output += `<li>${product.title}</li>`
-                output += `<li>${product.price}</li>`
-            </div> */
-
-            output += `<div class="card card-body d-flex align-items-center produtos">
-                <a href="#" class="heart-btn codeinspire-wishlist-btn">
-                        <div class="content">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                            </svg></a>
-                        </div>
-                <img src="https://via.placeholder.com/300x300" width=300px onclick="addWishList()"></img>  <br> </br>
-                ${product.title} <br> </br> R$${product.price}
-                    </div>`
-
-        }
-        document.querySelector('main').innerHTML=output
-    }
-
-
-
-    function addWishList()
-    {
-       var produtoWish = document.getElementById('content').value;
-       var wishList = document.getElementById('wishList');
-       var add = true;
-       var opt = document.createElement('option');
-
-       for (i=0; i<products; i++)
-       {
-        if (produtoWish==wishList[i].value)
-        {
-            add=false;
-        }
-       }
-       if(add==true)
-       {
-        product.value=produtoWish;
-        wishList.appendChild(wishList.innerHTML)
-       }
-       document.querySelector('wishList.html').innerHTML
-    }
+  <!--Wish List-->
+    <datalist id="wishList">
+        <option value=""></option>
+    </datalist>
+  <!--/Wish List-->
+  
+          </div>
+      </div>
+  </div>
+  
+  </body>
 
 </script>
         

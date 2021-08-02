@@ -1,12 +1,19 @@
 const cors = require ('cors')
 const express = require ('express')
 const app = express()
+const axios = require ('axios')
 
 app.use(cors())
 
-app.get('/', (req,resp) =>
+app.get('/', async(req,resp) =>
 {
-    return resp.json([
+  //response: resposta do axios, data: response
+  const {data} = await axios ('https://run.mocky.io/v3/66063904-d43c-49ed-9329-d69ad44b885e')
+  console.log(data)
+
+  return resp.json(data)
+
+    /* return resp.json([
         {
         "id": 0,
             "sku": 8552515751438644,
@@ -47,23 +54,6 @@ app.get('/', (req,resp) =>
             "image": "https://via.placeholder.com/300x300"
           },
       
-          {
-            "id": 2,
-            "sku": 11854078013954528,
-            "title": "Camisa Feminina Nike Corinthians I",
-            "description": "14/15 s/nº",
-            "availableSizes": {
-              "S": 1, 
-              "G": 6
-            },
-            "style": "Branco com listras pretas",
-            "price": 199.9,
-            "installments": 7,
-            "currencyId": "BRL",
-            "currencyFormat": "R$",
-            "isFreeShipping": true,
-            "image": "https://via.placeholder.com/300x300"
-          },
       
           {
             "id": 3,
@@ -120,24 +110,6 @@ app.get('/', (req,resp) =>
           },
       
           {
-            "id": 6,
-            "sku": 6090484789343891,
-            "title": "Calção Nike Corinthians",
-            "description": "Goleiro 13/14",
-            "availableSizes": {
-              "GG": 1, 
-              "GGG": 0
-            },
-            "style": "Branco",
-            "price": 49.9,
-            "installments": 0,
-            "currencyId": "BRL",
-            "currencyFormat": "R$",
-            "isFreeShipping": true,
-            "image": "https://via.placeholder.com/300x300"
-          },
-      
-          {
             "id": 7,
             "sku": 18532669286405342,
             "title": "Camisa Corinthians Réplica",
@@ -170,154 +142,7 @@ app.get('/', (req,resp) =>
             "isFreeShipping": false,
             "image": "https://via.placeholder.com/300x300"
           },
-      
-          {
-            "id": 9,
-            "sku": 11600983276356165,
-            "title": "Jaqueta Corinthians CP",
-            "description": "",
-            "availableSizes": {
-              "G": 2, 
-              "GG": 3
-            },
-            "style": "",
-            "price": 134.9,
-            "installments": 5,
-            "currencyId": "BRL",
-            "currencyFormat": "R$",
-            "isFreeShipping": true,
-            "image": "https://via.placeholder.com/300x300"
-          },
-      
-          {
-            "id": 10,
-            "sku": 27250082398145995,
-            "title": "Jaqueta Corinthians Urban c/ Capuz",
-            "description": "",
-            "availableSizes": {
-              "G": 2, 
-              "GG": 3
-            },
-            "style": "",
-            "price": 249.9,
-            "installments": 9,
-            "currencyId": "BRL",
-            "currencyFormat": "R$",
-            "isFreeShipping": true,
-            "image": "https://via.placeholder.com/300x300"
-          },
-      
-          {
-            "id": 11,
-            "sku": 39876704341265606,
-            "title": "Jaqueta Corinthians Elite",
-            "description": "",
-            "availableSizes": {
-              "S": 1, 
-              "G": 6
-            },
-            "style": "Preto",
-            "price": 99.9,
-            "installments": 3,
-            "currencyId": "BRL",
-            "currencyFormat": "R$",
-            "isFreeShipping": true,
-            "image": "https://via.placeholder.com/300x300"
-          },
-      
-          {
-            "id": 12,
-            "sku": 12064273040195392,
-            "title": "Tênis Nike Air Relentless",
-            "description": "4 MSL",
-            "availableSizes": {
-              "40": 5, 
-              "43": 12
-            },
-            "style": "Cinza com símbolo laranja",
-            "price": 229.9,
-            "installments": 9,
-            "currencyId": "BRL",
-            "currencyFormat": "R$",
-            "isFreeShipping": true,
-            "image": "https://via.placeholder.com/300x300"
-          },
-      
-          {
-            "id": 13,
-            "sku": 51498472915966366,
-            "title": "Tênis Nike Biscuit Canvas",
-            "description": "",
-            "availableSizes": {
-              "41": 3
-            },
-            "style": "Vermelho com detalhe em branco",
-            "price": 129.9,
-            "installments": 5,
-            "currencyId": "BRL",
-            "currencyFormat": "R$",
-            "isFreeShipping": true,
-            "image": "https://via.placeholder.com/300x300"
-          },
-      
-          {
-            "id": 14,
-            "sku": 10686354557628303,
-            "title": "Camisa Nike Academy",
-            "description": "GPX Poly 1",
-            "availableSizes": {
-              "S": 12, 
-              "G": 3, 
-              "GG": 1
-            },
-            "style": "Vermelho com detalhe em preto",
-            "price": 99.9,
-            "installments": 3,
-            "currencyId": "BRL",
-            "currencyFormat": "R$",
-            "isFreeShipping": true,
-            "image": "https://via.placeholder.com/300x300"
-          },
-      
-          {
-            "id": 15,
-            "sku": 11033926921508487,
-            "title": "Camisa Nike Corinthians",
-            "description": "Treino 2014",
-            "availableSizes": {
-              "S": 100, 
-              "G": 5, 
-              "GG": 120, 
-              "GGG": 12
-            },
-            "style": "Branco com detalhe em azul",
-            "price": 149.9,
-            "installments": 5,
-            "currencyId": "BRL",
-            "currencyFormat": "R$",
-            "isFreeShipping": true,
-            "image": "https://via.placeholder.com/300x300"
-          },
-      
-          {
-            "id": 16,
-            "sku": 10412368723880253,
-            "title": "Camisa Polo Corinthians Ouro",
-            "description": "",
-            "availableSizes": {
-              "S": 12, 
-              "G": 3, 
-              "GG": 1
-            },
-            "style": "Preto com detalhe em dourado",
-            "price": 129.9,
-            "installments": 5,
-            "currencyId": "BRL",
-            "currencyFormat": "R$",
-            "isFreeShipping": true,
-            "image": "https://via.placeholder.com/300x300"
-          }
-    ])
+    ]) */
 })
 
 app.listen('8081')
