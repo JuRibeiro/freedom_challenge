@@ -253,7 +253,7 @@
             const response = await fetch('http://localhost:8081/')
             //console.log(response)
             const data = await response.json()
-            //console.log(data)
+            console.log(data)
             show(data)
         } 
         catch (error) 
@@ -276,7 +276,7 @@
                 output += `<li>${product.price}</li>`
             </div> */
 
-            output += `<div class="card card-body d-flex align-items-center produtos onclick="addWishList()">
+            output += `<div class="card card-body d-flex align-items-center produtos>
                 <a href= "wishList.html" class="heart-btn">
                         <div class="content">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
