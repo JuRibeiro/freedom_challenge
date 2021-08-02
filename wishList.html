@@ -215,8 +215,12 @@
   <!--Wish List-->
     <datalist id="wishList">
         <option value=""></option>
+        <span onclick="addWishList()" class="addBtn">Add</span>
     </datalist>
   <!--/Wish List-->
+
+
+  
   
           </div>
       </div>
@@ -244,6 +248,31 @@
 <!--/RODAPÉ-->
 
   </body>
+
+  <script>
+
+  function addWishList()
+    {
+       var produtoWish = document.getElementById('content').value;
+       var wishList = document.getElementById('wishList');
+       var add = true;
+       var opt = document.createElement('option');
+
+       for (i=0; i<products; i++)
+       {
+        if (produtoWish==wishList[i].value)
+        {
+            add=false;
+        }
+       }
+       if(add==true)
+       {
+        product.value=produtoWish;
+        wishList.appendChild(wishList.innerHTML)
+       }
+       
+    }
+
 
 </script>
         

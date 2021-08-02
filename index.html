@@ -276,14 +276,14 @@
                 output += `<li>${product.price}</li>`
             </div> */
 
-            output += `<div class="card card-body d-flex align-items-center produtos">
-                <a href="#" class="heart-btn codeinspire-wishlist-btn">
+            output += `<div class="card card-body d-flex align-items-center produtos onclick="addWishList()">
+                <a href= "wishList.html" class="heart-btn">
                         <div class="content">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                             </svg></a>
                         </div>
-                <img src="https://via.placeholder.com/300x300" width=300px onclick="addWishList()"></img>  <br> </br>
+                <img src="https://via.placeholder.com/300x300" width=300px"></img>  <br> </br>
                 ${product.title} <br> </br> R$${product.price}
                     </div>`
 
@@ -310,9 +310,8 @@
        if(add==true)
        {
         product.value=produtoWish;
-        wishList.appendChild(wishList.innerHTML)
+        wishList.appendChild()
        }
-       document.querySelector('wishList.html').innerHTML
     }
 
 </script>
