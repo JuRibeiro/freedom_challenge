@@ -10,7 +10,7 @@ JavaScript.<br>
 ### 📦 **|**  Utilizado NPM (Node Package Modules) para geranciamento das dependências do código:
 <br>
 Nodemon: observa a API enquanto modificada e realiza o restart;<br>
-Axios:  um cliente HTTP baseado em Promises para fazer requisições. Pode ser utilizado tanto no navegador quando no Node.js;<br>
+Axios:  um cliente HTTP baseado em Promises para fazer requisições. Pode ser utilizado tanto no navegador quanto no Node.js;<br>
 Cors: permite acesso do front a API;<br>
 Express: ajuda no armazenamento de uma API externa (criando uma rota para a API).<br>
 
